@@ -31,7 +31,7 @@ namespace GW2SE.Base.NetworkManagement
 
         public void RemoveClient(NetID ID)
         {
-            if (clientList.ContainsKey(ID))
+            if (clientList.ContainsKey(ID) && NetIDManager.Instance.RemoveID(ID))
             {
                 clientList.Remove(ID);
             }

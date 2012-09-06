@@ -3,6 +3,6 @@ namespace GW2SE.Base
 {
     public class Constants
     {
-        public const UInt32 ServerVersion = 15377;
+        public const UInt32 ServerVersion = 0; //Not required, yet
     }
 }

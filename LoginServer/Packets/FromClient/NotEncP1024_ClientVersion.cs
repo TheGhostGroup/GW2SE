@@ -6,8 +6,8 @@ using GW2SE.Base.NetworkManagement;
 
 namespace GW2SE.LoginServer.Packets.FromClient
 {
-    [PacketInformation(1024, true)]
-    public class NotEncPacket_1024 : IPacket
+    [PacketHeader(1024)]
+    public class NotEncP1024_ClientVersion : IPacketIn
     {
         public UInt16 Header { get; set; }
         public UInt16 Data1 { get; set; }
@@ -15,7 +15,7 @@ namespace GW2SE.LoginServer.Packets.FromClient
         public UInt32 Data3 { get; set; }
         public UInt32 Data4 { get; set; }
 
-        public bool Initialize(ref NetworkMessage Message)
+        public bool Initialize(NetworkMessage Message)
         {
             DataUtilities.InitializeStream(Message.PacketData);
             Header = DataUtilities.ToUInt16(Message.PacketData);
@@ -24,7 +24,7 @@ namespace GW2SE.LoginServer.Packets.FromClient
             Data3 = DataUtilities.ToUInt32(Message.PacketData);
             Data4 = DataUtilities.ToUInt32(Message.PacketData);
 
-            if (ClientVersion != Constants.ServerVersion)
+            if (ClientVersion != Constants.ServerVersion && Constants.ServerVersion != 0)
             {
                 Client client;
 
@@ -47,7 +47,7 @@ namespace GW2SE.LoginServer.Packets.FromClient
             return true;
         }
 
-        public void Handle(ref NetworkMessage Message)
+        public void Handle(NetworkMessage Message)
         {
             Console.WriteLine("ClientVersion: " + ClientVersion.ToString());
         }

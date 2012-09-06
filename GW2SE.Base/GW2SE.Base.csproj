@@ -53,11 +53,10 @@
     <Compile Include="NetworkManagement\NetworkMessage.cs" />
     <Compile Include="PacketManagement\IPacket.cs" />
     <Compile Include="PacketManagement\PacketException.cs" />
-    <Compile Include="PacketManagement\PacketInformation.cs" />
+    <Compile Include="PacketManagement\PacketHeader.cs" />
     <Compile Include="PacketManagement\PacketManager.cs" />
     <Compile Include="NetworkManagement\NetworkManager.cs" />
     <Compile Include="PacketManagement\PacketRegistrator.cs" />
-    <Compile Include="ConstLength.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

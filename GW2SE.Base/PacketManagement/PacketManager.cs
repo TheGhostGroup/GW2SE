@@ -28,18 +28,18 @@ namespace GW2SE.Base.PacketManagement
 
         public void ProcessPacket(NetworkMessage NetworkMessage)
         {
-            IPacket packetTemplate;
+            IPacketIn packetTemplate;
             if (!PacketRegistrator.Instance.PacketIn.TryGetValue(NetworkMessage.Header, out packetTemplate))
             {
                 Console.WriteLine("Unhandled packet [" + NetworkMessage.Header.ToString() + "]. The packet is not supported by this server build");
                 return;
             }
 
-            if (packetTemplate.Initialize(ref NetworkMessage))
+            if (packetTemplate.Initialize(NetworkMessage))
             {
                 Console.WriteLine();
                 Console.WriteLine("---> " + BitConverter.ToString(NetworkMessage.PacketData.ToArray()).Replace("-", " "));
-                packetTemplate.Handle(ref NetworkMessage);
+                packetTemplate.Handle(NetworkMessage);
             }
         }
     }

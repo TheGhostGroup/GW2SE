@@ -6,13 +6,13 @@ using GW2SE.Base.NetworkManagement;
 
 namespace GW2SE.LoginServer.Packets.FromClient
 {
-    [PacketInformation(16896, true)]
-    public class NotEncPacket_16896 : IPacket
+    [PacketHeader(16896)]
+    public class NotEncP16896_ClientSeed : IPacketIn
     {
         public UInt16 Header { get; private set; }
         public byte[] Seed { get; private set; }
 
-        public bool Initialize(ref NetworkMessage Message)
+        public bool Initialize(NetworkMessage Message)
         {
             DataUtilities.InitializeStream(Message.PacketData);
             Header = DataUtilities.ToUInt16(Message.PacketData);
@@ -20,9 +20,14 @@ namespace GW2SE.LoginServer.Packets.FromClient
             return true;
         }
 
-        public void Handle(ref NetworkMessage Message)
+        public void Handle(NetworkMessage Message)
         {
-            
+            Client client;
+            if (!NetworkManager.Instance.Clients.TryGetClient(Message.Client, out client))
+                return;
+
+            Console.WriteLine("End of progress...");
+            client.Disconnect();
         }
     }
 }

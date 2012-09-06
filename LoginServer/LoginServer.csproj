@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packets\FromClient\NotEncPacket_1024.cs" />
-    <Compile Include="Packets\FromClient\NotEncPacket_16896.cs" />
+    <Compile Include="Packets\FromClient\NotEncP1024_ClientVersion.cs" />
+    <Compile Include="Packets\FromClient\NotEncP16896_ClientSeed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

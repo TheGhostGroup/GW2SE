@@ -3,9 +3,15 @@ using GW2SE.Base.NetworkManagement;
 
 namespace GW2SE.Base.PacketManagement
 {
-    public interface IPacket
+    public interface IPacketIn
     {
-        bool Initialize(ref NetworkMessage Message);
-        void Handle(ref NetworkMessage Message);
+        bool Initialize(NetworkMessage Message);
+        void Handle(NetworkMessage Message);
+    }
+
+    public interface IPacketOut
+    {
+        bool Initialize();
+        NetworkMessage Handle();
     }
 }

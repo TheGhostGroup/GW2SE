@@ -12,10 +12,10 @@ namespace GW2SE.Base.NetworkManagement
     public class Client
     {
         public NetID ID { get; private set; }
+        public bool Removed { get; private set; }
         public Socket Socket { get; private set; }
         public PacketManager PacketManager { get; private set; }
         public NetworkMessage[] NetworkMessages { get { return messageQueue.ToArray(); } }
-
 
         public event NetworkEventHandler Connected;
         public event NetworkEventHandler Disconnected;
@@ -85,16 +85,30 @@ namespace GW2SE.Base.NetworkManagement
 
         public void ProcessPackets()
         {
-            PacketManager.ProcessPackets(messageQueue.ToArray());
+            PacketManager.ProcessPackets(NetworkMessages);
+        }
+
+        public void SendPacket(IPacketOut Packet)
+        {
+            var message = Packet.Handle();
+
+            if (!Packet.Initialize())
+            {
+                Console.WriteLine("Error in packet " + Packet.GetType().Name + " [" + message.Header + "]");
+                return;
+            }
+
+            Socket.Send(message.PacketData.ToArray());
         }
 
         public void Disconnect()
         {
-            Socket.Disconnect(false);
             OnDisconnect();
+            NetworkManager.Instance.Clients.RemoveClient(ID);
+            Removed = true;
         }
 
-        public void OnDisconnect()
+        private void OnDisconnect()
         {
             if (Disconnected != null)
             {
@@ -103,7 +117,7 @@ namespace GW2SE.Base.NetworkManagement
             }
         }
 
-        public void OnConnect()
+        private void OnConnect()
         {
             if (Connected != null)
             {

@@ -18,7 +18,6 @@ namespace GW2SE.Base.NetworkManagement
 
         TcpListener sListener;
         ClientManager sClients;
-        NetIDManager idManager;
         bool sRuninng;
 
         static NetworkManager instance;
@@ -49,7 +48,7 @@ namespace GW2SE.Base.NetworkManagement
                 hostPort = ServerPort;
             }
 
-            idManager = new NetIDManager();
+            NetIDManager.Instance = new NetIDManager();
             sClients = new ClientManager();
 
             Start();
@@ -85,7 +84,7 @@ namespace GW2SE.Base.NetworkManagement
         {
             if (Pending)
             {
-                var client = new Client(sListener.AcceptTcpClient().Client, idManager.GenerateID());
+                var client = new Client(sListener.AcceptTcpClient().Client, NetIDManager.Instance.GenerateID());
                 client.Connected += OnConnection;
                 client.Disconnected += OnConnectionLost;
                 sClients.AddClient(client);

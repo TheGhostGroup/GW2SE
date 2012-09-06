@@ -1,0 +1,7 @@
+C:\Users\Markus\Documents\GitHub\GW2SE\LoginServer\obj\Debug\LoginServer.csprojResolveAssemblyReference.cache
+C:\Users\Markus\Documents\GitHub\GW2SE\LoginServer\bin\Debug\LoginServer.exe
+C:\Users\Markus\Documents\GitHub\GW2SE\LoginServer\bin\Debug\LoginServer.pdb
+C:\Users\Markus\Documents\GitHub\GW2SE\LoginServer\bin\Debug\GW2SE.Base.dll
+C:\Users\Markus\Documents\GitHub\GW2SE\LoginServer\bin\Debug\GW2SE.Base.pdb
+C:\Users\Markus\Documents\GitHub\GW2SE\LoginServer\obj\Debug\LoginServer.exe
+C:\Users\Markus\Documents\GitHub\GW2SE\LoginServer\obj\Debug\LoginServer.pdb
