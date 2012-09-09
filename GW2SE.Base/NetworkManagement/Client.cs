@@ -125,5 +125,10 @@ namespace GW2SE.Base.NetworkManagement
                 Connected(ID);
             }
         }
+
+        public void Dispose()
+        {
+            Socket.Dispose();
+        }
     }
 }

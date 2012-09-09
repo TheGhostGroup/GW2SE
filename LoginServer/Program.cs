@@ -3,6 +3,7 @@ using System.Net;
 using System.Reflection;
 
 using GW2SE.Base;
+using GW2SE.PluginSystem;
 using GW2SE.Base.NetworkManagement;
 using GW2SE.Base.PacketManagement;
 
@@ -26,33 +27,56 @@ namespace GW2SE.LoginServer
                 }
             }
 
-            Logger.SetTitle("Guild Wars 2 Login Server [Test]");
+            Console.CancelKeyPress += CtrlC;
+            Console.Title = "Guild Wars 2 Login Server [Test]";
             Console.WindowWidth += 28;
+            Console.ForegroundColor = ConsoleColor.Blue;
 
-            Logger.WriteLineColored(" ----------------------------------------", ConsoleColor.Green);
-            Logger.WriteLineColored("| Guild Wars 2 Emu Project - By iPHAnTom |", ConsoleColor.Green);
-            Logger.WriteLineColored(" ----------------------------------------", ConsoleColor.Green);
+            Console.WriteLine(@"   ____________________________");
+            Console.WriteLine(@"  /                            \");
+            Console.WriteLine(@" <        --[ GW2Emu ]--        >");
+            Console.WriteLine(@"  \____________________________/");
+            Console.WriteLine();
+            Console.Write(" => IP address: ");
+            Console.WriteLine(ServerAddress);
 
-            Logger.WriteLine();
-            Logger.WriteColored("IP address: ", ConsoleColor.Gray);
-            Logger.WriteLineColored(ServerAddress, ConsoleColor.Red);
-
-            Logger.WriteLine();
-            Logger.WriteLine();
-            Logger.WriteColored("Creating network manager and starting server... ", ConsoleColor.Blue);
+            Console.WriteLine();
+            Console.Write(" => Creating network manager and starting server... ");
             NetworkManager.Instance = new NetworkManager(ServerAddress, 6112);
             NetworkManager.Instance.ClientDisconnected += ConnectionLost;
+            Console.WriteLine("[done]");
 
-            Logger.WriteLineColored("[done]", ConsoleColor.Yellow);
-
+            Console.Write(" => Registering packets... ");
             PacketRegistrator.Instance.RegisterPackets(Assembly.GetExecutingAssembly().GetTypes());
+            Console.WriteLine("[done]");
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write(" => Loading plugins... ");
+            try
+            {
+                PluginManager.Instance = new PluginManager(PluginManager.LoadPlugins("Plugin"));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine();
+                Console.Write("Press any key to exit... ");
+                Console.ReadKey(true);
+                return;
+            }
+            Console.WriteLine("[done]");
+
+            PluginManager.Instance.HandleOnEnabled();
 
             while (NetworkManager.Instance.Running)
             {
                 NetworkManager.Instance.ProcessActions();
             }
+        }
+
+        private static void CtrlC(object sender, ConsoleCancelEventArgs e)
+        {
+            PluginManager.Instance.HandleOnDisabled();
         }
 
         private static void ConnectionLost(NetID ID)

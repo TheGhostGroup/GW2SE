@@ -4,22 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F550CDD8-791B-4277-AB2E-853544B45644}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{59E29BD9-83CE-44F7-87C2-90A540D1513D}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GW2SE.LoginServer</RootNamespace>
-    <AssemblyName>LoginServer</AssemblyName>
+    <RootNamespace>GW2SE.PluginSystem</RootNamespace>
+    <AssemblyName>GW2SE.PluginSystem</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -29,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,26 +33,10 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packets\FromClient\NotEncP1024_ClientVersion.cs" />
-    <Compile Include="Packets\FromClient\NotEncP16896_ClientSeed.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="IPlugin.cs" />
+    <Compile Include="PluginManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GW2SE.Base\GW2SE.Base.csproj">
-      <Project>{894a7aa0-1fa0-44f8-bea3-7a1741ac56c1}</Project>
-      <Name>GW2SE.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GW2SE.PluginSystem\GW2SE.PluginSystem.csproj">
-      <Project>{59e29bd9-83ce-44f7-87c2-90a540d1513d}</Project>
-      <Name>GW2SE.PluginSystem</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Packets\ToClient\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
+    <Compile Include="Events.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

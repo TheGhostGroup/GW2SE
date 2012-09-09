@@ -48,5 +48,14 @@ namespace GW2SE.Base.NetworkManagement
 
             return array.ToArray();
         }
+
+        public void Dispose()
+        {
+            foreach (Client client in ToArray())
+            {
+                client.Dispose();
+            }
+            clientList.Clear();
+        }
     }
 }

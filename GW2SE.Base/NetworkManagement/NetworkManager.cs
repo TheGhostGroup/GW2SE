@@ -29,7 +29,7 @@ namespace GW2SE.Base.NetworkManagement
         #endregion
 
         #region Properties
-        public bool Running { get { return sRuninng; } private set { sRuninng = value; } }
+        public bool Running { get { return sRuninng; } set { sRuninng = value; } }
         public bool Pending { get { if (Running) { return sListener.Pending(); } else { return false; } } }
         public ClientManager Clients { get { return sClients; } }
         #endregion
@@ -92,10 +92,19 @@ namespace GW2SE.Base.NetworkManagement
 
             foreach (Client client in sClients.ToArray())
             {
+                if (!client.IsConnected())
+                    client.Disconnect();
+
                 client.CheckForIncoming();
                 client.ProcessPackets();
                 client.ClearQueue();
             }
+        }
+
+        public void Dispose()
+        {
+            Clients.Dispose();
+            sListener.Stop();
         }
 
         private void OnConnection(NetID ID)

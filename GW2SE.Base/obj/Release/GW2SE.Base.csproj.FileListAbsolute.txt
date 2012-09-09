@@ -2,3 +2,10 @@ C:\Users\Markus\Documents\Guild Wars 2 Server Emulator\GW2SE.Base\bin\Release\GW
 C:\Users\Markus\Documents\Guild Wars 2 Server Emulator\GW2SE.Base\bin\Release\GW2SE.Base.pdb
 C:\Users\Markus\Documents\Guild Wars 2 Server Emulator\GW2SE.Base\obj\Release\GW2SE.Base.dll
 C:\Users\Markus\Documents\Guild Wars 2 Server Emulator\GW2SE.Base\obj\Release\GW2SE.Base.pdb
+C:\Users\Markus\Documents\GitHub\GW2SE\GW2SE.Base\bin\Release\GW2SE.Base.dll
+C:\Users\Markus\Documents\GitHub\GW2SE\GW2SE.Base\bin\Release\GW2SE.Base.pdb
+C:\Users\Markus\Documents\GitHub\GW2SE\GW2SE.Base\obj\Release\GW2SE.Base.csprojResolveAssemblyReference.cache
+C:\Users\Markus\Documents\GitHub\GW2SE\GW2SE.Base\obj\Release\GW2SE.Base.dll
+C:\Users\Markus\Documents\GitHub\GW2SE\GW2SE.Base\obj\Release\GW2SE.Base.pdb
+C:\Users\Markus\Documents\GitHub\GW2SE\GW2SE.Base\bin\Release\GW2SE.PluginSystem.dll
+C:\Users\Markus\Documents\GitHub\GW2SE\GW2SE.Base\bin\Release\GW2SE.PluginSystem.pdb

@@ -22,12 +22,7 @@ namespace GW2SE.LoginServer.Packets.FromClient
 
         public void Handle(NetworkMessage Message)
         {
-            Client client;
-            if (!NetworkManager.Instance.Clients.TryGetClient(Message.Client, out client))
-                return;
-
-            Console.WriteLine("End of progress...");
-            client.Disconnect();
+            GW2SE.PluginSystem.Events.LoginServer.OnClientSeedReceived(this);
         }
     }
 }

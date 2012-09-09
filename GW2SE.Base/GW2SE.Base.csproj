@@ -15,6 +15,8 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,17 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="DataUtilities.cs" />
-    <Compile Include="Logger.cs" />
     <Compile Include="NetworkManagement\Client.cs" />
     <Compile Include="NetworkManagement\ClientManager.cs" />
     <Compile Include="NetworkManagement\NetID.cs" />
@@ -58,6 +53,12 @@
     <Compile Include="NetworkManagement\NetworkManager.cs" />
     <Compile Include="PacketManagement\PacketRegistrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GW2SE.PluginSystem\GW2SE.PluginSystem.csproj">
+      <Project>{59e29bd9-83ce-44f7-87c2-90a540d1513d}</Project>
+      <Name>GW2SE.PluginSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

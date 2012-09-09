@@ -5,24 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginServer", "LoginServer\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW2SE.Base", "GW2SE.Base\GW2SE.Base.csproj", "{894A7AA0-1FA0-44F8-BEA3-7A1741AC56C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW2SE.PluginSystem", "GW2SE.PluginSystem\GW2SE.PluginSystem.csproj", "{59E29BD9-83CE-44F7-87C2-90A540D1513D}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccLocalPath0 = .
-		SccLocalPath1 = LoginServer
-		SccLocalPath2 = GW2SE.Base
-		SccNumberOfProjects = 3
-		SccProjectName1 = LoginServer
-		SccProjectName2 = GW2SE.Base
-		SccProjectUniqueName1 = LoginServer\\LoginServer.csproj
-		SccProjectUniqueName2 = GW2SE.Base\\GW2SE.Base.csproj
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs28
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59E29BD9-83CE-44F7-87C2-90A540D1513D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E29BD9-83CE-44F7-87C2-90A540D1513D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E29BD9-83CE-44F7-87C2-90A540D1513D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E29BD9-83CE-44F7-87C2-90A540D1513D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{894A7AA0-1FA0-44F8-BEA3-7A1741AC56C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{894A7AA0-1FA0-44F8-BEA3-7A1741AC56C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{894A7AA0-1FA0-44F8-BEA3-7A1741AC56C1}.Release|Any CPU.ActiveCfg = Release|Any CPU

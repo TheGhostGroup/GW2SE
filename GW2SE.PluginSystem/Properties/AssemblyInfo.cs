@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GW2SE.Base")]
+[assembly: AssemblyTitle("GW2SE.PluginSystem")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GW2SE.Base")]
+[assembly: AssemblyProduct("GW2SE.PluginSystem")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("00f49ae1-9203-41a5-9938-58bc0763264a")]
+[assembly: Guid("c3f25184-c256-4668-805c-941c30bf985d")]
 
 // Version information for an assembly consists of the following four values:
 //

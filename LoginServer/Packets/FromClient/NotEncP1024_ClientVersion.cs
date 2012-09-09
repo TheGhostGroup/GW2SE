@@ -24,32 +24,12 @@ namespace GW2SE.LoginServer.Packets.FromClient
             Data3 = DataUtilities.ToUInt32(Message.PacketData);
             Data4 = DataUtilities.ToUInt32(Message.PacketData);
 
-            if (ClientVersion != Constants.ServerVersion && Constants.ServerVersion != 0)
-            {
-                Client client;
-
-                if (!NetworkManager.Instance.Clients.TryGetClient(Message.Client, out client))
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Could not disconnect a client. NetID: " + Message.Client.ToString());
-
-                    return false;
-                }
-
-                Console.WriteLine();
-                Console.WriteLine("The client version does not match the server version. ClientVersion: " + ClientVersion.ToString());
-
-                client.Disconnect();
-
-                return false;
-            }
-
             return true;
         }
 
         public void Handle(NetworkMessage Message)
         {
-            Console.WriteLine("ClientVersion: " + ClientVersion.ToString());
+            GW2SE.PluginSystem.Events.LoginServer.OnClientVersionReceived(this);
         }
     }
 }
